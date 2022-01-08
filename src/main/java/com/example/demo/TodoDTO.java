@@ -21,4 +21,13 @@ public class TodoDTO {
 		this.title = entity.getTitle();
 		this.done = entity.isDone();
 	}
+	
+	//필요한 데이터만 설정할 수 있어 빌더패턴 사용
+	public static TodoEntity toEntity(final TodoDTO dto) {
+		return TodoEntity.builder()
+				.id(dto.getId())
+				.title(dto.getTitle())
+				.done(dto.isDone())
+				.build();
+	}
 }
