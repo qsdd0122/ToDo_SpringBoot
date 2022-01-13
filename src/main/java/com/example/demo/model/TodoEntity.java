@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.example.demo.TodoDTO;
+import com.example.demo.dto.TodoDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

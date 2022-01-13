@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.dto;
 
 import com.example.demo.model.TodoEntity;
 
