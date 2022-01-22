@@ -1,12 +1,11 @@
 package com.example.demo.config;
 
-import org.apache.catalina.filters.CorsFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.web.filter.CorsFilter;
 
 import com.example.demo.security.JwtAuthenticationFilter;
 
@@ -36,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			.anyRequest().authenticated(); // 이외의 모든 경로는 인증해야함
 		
 		// filter 등록, 매 요청마다 CorsFilter 실행한 후 jwtAuthenticationFilter 실행
-		http.addFilterAfter(jwtAuthenticationFilter, BasicAuthenticationFilter.class);
+		http.addFilterAfter(jwtAuthenticationFilter, CorsFilter.class);
 	}
 	
 	

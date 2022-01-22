@@ -31,9 +31,9 @@ public class UserService {
 	}
 	
 	//로그인시 인증
-	public UserEntity getByCredentials(final String email, final String password) {
-		return userRepository.findByEmailAndPassword(email, password);
-	}
+	//public UserEntity getByCredentials(final String email, final String password) {
+	//	return userRepository.findByEmailAndPassword(email, password);
+//	}
 	
 	// 패스워드 암호화흫 이용한 인증
 	public UserEntity getByCredentials(final String email, final String password, final PasswordEncoder encoder) {

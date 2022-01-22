@@ -1,5 +1,6 @@
 package com.example.demo.security;
 
+import java.nio.charset.Charset;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
@@ -43,8 +44,8 @@ public class TokenProvider {
 		//헤더와 페이로드를 setSigningKey로 넘어온 시크릿을 이용해 서명한 후 token의 서명과 비교
 		//위조되지 않았다면 페이로드(Claims)를 리턴, 위조라면 예외를 날림
 		//그 중 userId가 필요하므로 getBody를 부른다.
-		Claims claims = Jwts.parser().setSigningKey(SECRET_KEY)
-				.parseClaimsJws(token).getBody();
+		log.info(token);
+		Claims claims = Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
 		
 		return claims.getSubject();
 	}
